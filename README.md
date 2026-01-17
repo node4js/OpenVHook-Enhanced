@@ -29,3 +29,8 @@ Make sure to include **OpenVHook.log** and if reporting an incompatiblity please
 [FiveM](https://fivem.net/) For their hashmap and patterns. Now, sadly outdated for E&E, currently making a crossmap/native gen (runtime).
 
 [Alexander Blade](http://www.dev-c.com/) For the ScriptHookV SDK files which can also be used with OpenVHook. *I still hate him though.*
+
+// TODO :
+Fix natives
+### *(IMPORTANT) ADD DX12 HOOK*
+(for later) Fix junk code
