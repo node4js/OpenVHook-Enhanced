@@ -1,5 +1,6 @@
 #include "Thread.h"
-
+#include "..\Utility\Log.h"
+using namespace Utility;
 Thread::Thread(ThreadCallback callback) : Thread(callback, NULL)
 { }
 
@@ -29,7 +30,14 @@ DWORD Thread::ThreadStart(LPVOID pParam)
 
 void Thread::Run(int nPriority)
 {
-	m_handle = CreateThread(NULL, NULL, ThreadStart, &m_info, NULL, NULL);
+	m_handle = CreateThread(NULL, 0, ThreadStart, &m_info, 0, NULL);
+	
+	if (!m_handle) {
+		DWORD err = GetLastError();
+		LOG_ERROR("Failed to create thread");
+		// "try using undocumented calls it'll be fun" -node4js
+		return;
+	}
 
 	SetThreadPriority(m_handle, nPriority);
 

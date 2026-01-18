@@ -13,8 +13,9 @@ namespace Utility {
 		AllocConsole();
 		SetConsoleTitle( "OpenHookV" );
 
-		freopen( "CONOUT$", "w", stdout );
-		freopen( "CONOUT$", "w", stderr );
+		if (!freopen("CONOUT$", "w", stdout)) {
+			MessageBoxA(NULL, "Failed to redirect stdout", "stderr", MB_OK);
+		}
 
 		outputHandle = GetStdHandle( STD_OUTPUT_HANDLE );
 
